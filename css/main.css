@@ -9,69 +9,95 @@ body {
     height: 400px;
 }
 
-.label_place {
+.popup {
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    padding: 3px;
-    background: #b2eead;
-    border: darkslategrey 5px solid;
-    border-radius: 5px;
+    padding: 30px;
+    background-color: rgba(84, 236, 234, 0.7);
+    /*background-color: rgba(255, 255, 255, 0.6);*/
+    /*border: darkslategrey 5px solid;
+    border-radius: 5px;*/
     width: 350px;
     height: 400px;
     box-sizing: border-box;
     animation: slide-in-left 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-.notes_img {
-    border: darkslategrey 2px solid;
-    margin: 5px;
-    border-radius: 5px;
-    width: 90%;
+.popup__img {
+    /*border: darkslategrey 2px solid;*/
+    /*margin: 5px;*/
+    /*border-radius: 5px;*/
+    width: 100%;
     height: 100px;
     overflow: hidden;
 }
 
-.close {
+.popup__name {
+    text-transform: uppercase;
+}
+
+.popup__address {
+    text-align: left;
+}
+
+.popup__descr {
+    text-align: justify;
+}
+
+.popup__close {
     position: absolute;
     top: 0;
     right: 0;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
 
-.close:hover {
+.popup__close:hover {
+    opacity: 0.7;
     cursor: pointer;
 }
 
-.close::before {
+.popup__close::before {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -4px;
+    margin-top: -6px;
     margin-left: -1px;
     content: '';
     width: 2px;
-    height: 8px;
+    height: 12px;
     background-color: #000;
     transform: rotate(45deg);
 }
 
-.close::after {
+.popup__close::after {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -4px;
+    margin-top: -6px;
     margin-left: -1px;
     content: '';
     width: 2px;
-    height: 8px;
+    height: 12px;
     background-color: #000;
     transform: rotate(-45deg);
 }
 
-.label_place.slide-out-left {
+.popup__more {
+    margin-top: auto;
+    color: #000000;
+}
+
+.popup__more:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.popup.slide-out-left {
     animation: slide-out-left 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
@@ -91,4 +117,9 @@ body {
     100% {
         transform: translateX(-400px);
     }
+}
+
+@media(max-width: 576px) {
+    .popup {
+        width: 100%;
 }
