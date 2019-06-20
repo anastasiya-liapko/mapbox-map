@@ -46,7 +46,7 @@ $(function () {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
                 window.marker.addMarkers(map, markers);
-                
+                window.menu.addMenu(map, markers);
             });
         });
 

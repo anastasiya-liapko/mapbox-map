@@ -50,6 +50,7 @@ function parseToXML($htmlStr)
          // Add to XML document node
          echo '<marker ';
          echo 'id="' . $one_item['id'] . '" ';
+         echo 'parentId="' . $one_item['parent_id'] . '" ';
          echo 'name="' . parseToXML($one_item['name']) . '" ';
          echo 'address="' . parseToXML($one_item['address']) . '" ';
          echo 'lat="' . $one_item['lat'] . '" ';
