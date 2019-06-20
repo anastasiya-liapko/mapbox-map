@@ -64,8 +64,13 @@ $(function () {
                 }
             });
 
-            map.on('click', 'label' + i, function () {
+            map.on('click', 'label' + i, function (e) {
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
                 window.util.switchPopup(markerElem);
+                window.util.flyTo(map, coordinates);
             });
 
             // Change the cursor to a pointer when the mouse is over the places layer.

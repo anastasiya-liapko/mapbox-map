@@ -37,6 +37,7 @@ $(function () {
                     var listItemLink = document.createElement('a');
                     listItemLink.setAttribute('class', 'popup-menu__list-link');
                     listItemLink.setAttribute('data-id', id);
+                    // listItemLink.setAttribute('coords', point);
                     listItemLink.textContent = name;
                     listItem.appendChild(listItemLink);
                     var dropdownList = document.createElement('ul');
@@ -51,9 +52,11 @@ $(function () {
                             dropdown.slideDown();
                             $(this).on('click', function () {
                                 window.util.switchPopup(markerElem);
+                                window.util.flyTo(map, point);
                             })
                         } else {
                             window.util.switchPopup(markerElem);
+                            window.util.flyTo(map, point);
                         }
                     })
                 }
@@ -77,6 +80,7 @@ $(function () {
 
                     $('.popup-menu__dropdown-link[data-id="' + id + '"]').on('click', function () {
                         window.util.switchPopup(markerElem);
+                        window.util.flyTo(map, point);
                     })
                 }
             });

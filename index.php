@@ -14,13 +14,7 @@ require_once 'config.php';
 </head>
 <body>
     <h3>Maps Demo</h3>
-    <div id='map'>
-        <!-- <button class='hamburger' type='button'>
-            <span class='hamburger-box'>
-                <span class='hamburger-inner'></span>
-            </span>
-        </button> -->
-    </div>
+    <div id='map'></div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
     <script type="text/javascript" src="js/util.js"> </script>
