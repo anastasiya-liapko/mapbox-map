@@ -17,8 +17,8 @@ $(function () {
             // https://studio.mapbox.com/styles/aliapko/cjx336vt21apr1cpadxu1ogcg/edit/#3.08/43.35/36.8
 
             // style: 'mapbox://styles/mapbox/cjaudgl840gn32rnrepcb9b9g', // the outdoors-v10 style but without Hillshade layers
-            // style: 'mapbox://styles/aliapko/cjx336vt21apr1cpadxu1ogcg',
-            style: 'mapbox://styles/aliapko/cjx336vt21apr1cpadxu1ogcg/draft',
+            style: 'mapbox://styles/aliapko/cjx336vt21apr1cpadxu1ogcg',
+            // style: 'mapbox://styles/aliapko/cjx336vt21apr1cpadxu1ogcg/draft',
             center: uluru,
             zoom: params.zoom
         });
