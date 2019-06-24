@@ -128,6 +128,10 @@ body {
 }
 
 /* popup-menu */
+.popup-menu__list {
+    overflow-y: scroll;
+}
+
 .popup-menu__list,
 .popup-menu__dropdown {
     display: flex;
@@ -183,7 +187,8 @@ body {
 /* hamburger */
 .hamburger {
     z-index: 10;
-    position: relative;
+    /* position: relative; */
+    position: absolute;
     padding: 15px 10px;
     display: inline-block;
     cursor: pointer;
