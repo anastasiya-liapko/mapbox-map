@@ -18,11 +18,12 @@ $(function () {
     var flyTo = function (map, coordinates) {
         map.flyTo({
             center: coordinates,
-            zoom: 10,
-            bearing: 0,
+            zoom: 9,
+            bearing: 2,
             
-            speed: 0.8,
-            curve: 2,
+            // speed: 0.8,
+            speed: 2,
+            curve: 1,
 
             easing: function (t) { return t; }
         });

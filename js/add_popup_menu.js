@@ -1,23 +1,9 @@
 $(function () {
     var addMenu = function (map, markers) {
 
-        // var addBurger = function () {
-        //     var fragment = document.createDocumentFragment();
-        //     var template = document.querySelector('#js-templateHamburger').content.querySelector('.hamburger');
-        //     var templateElement = template.cloneNode(true);
-        //     fragment.appendChild(templateElement);
-        //     $('#map').append(fragment);
-        // };
-        // addBurger();
         $('#js-mapHamburger').show();
 
         var addPopup = function (coordinates) {
-            // var infowincontent = document.createElement('div');
-            // infowincontent.setAttribute('class', 'popup popup-menu');
-            // var list = document.createElement('ul');
-            // list.setAttribute('class', 'popup-menu__list');
-            // infowincontent.appendChild(list);
-            // $('#map').append(infowincontent.outerHTML);
             var fragmentMenu = document.createDocumentFragment();
             var template = document.querySelector('#js-templatePopupMenu').content.querySelector('.popup');
             var templateElement = template.cloneNode(true);
@@ -28,41 +14,15 @@ $(function () {
                 var parentId = markerElem.getAttribute('parentId');
                 var name = markerElem.getAttribute('name');
                 var address = markerElem.getAttribute('address');
-                // var type = markerElem.getAttribute('type');
-                var point = [parseFloat(markerElem.getAttribute('lng')), parseFloat(markerElem.getAttribute('lat'))]
+                var point = [parseFloat(markerElem.getAttribute('lng')), parseFloat(markerElem.getAttribute('lat'))];
+                var descr = 'Много много текста про какой то не понятный но очень крутой и известный во всём мире город. Об этом городе нужно узнать всем людям по любому! Есть даже ссылка чтоб про читать про это место еще больше.';
+                var more = 'https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)';
+                var img = 'images/s1200-3.jpeg';
 
                 if (parseInt(parentId) == 0) {
-                    // var listItem = document.createElement('li');
-                    // listItem.setAttribute('class', 'popup-menu__list-item');
-                    // var listItemLink = document.createElement('a');
-                    // listItemLink.setAttribute('class', 'popup-menu__list-link');
-                    // listItemLink.setAttribute('data-id', id);
                     var fragmentMenuItem = document.createDocumentFragment();
-                    fragmentMenuItem.appendChild(window.templateMenu([name, address, id, point]));
+                    fragmentMenuItem.appendChild(window.templateMenu([name, address, id, point, descr, more, img]));
                     fragmentMenu.querySelector('.popup-menu__list').append(fragmentMenuItem);
-                    
-                //     listItemLink.textContent = name;
-                //     listItem.appendChild(listItemLink);
-                //     var dropdownList = document.createElement('ul');
-                //     dropdownList.setAttribute('class', 'popup-menu__dropdown');
-                //     dropdownList.setAttribute('data-id', id);
-                //     listItem.appendChild(dropdownList);
-                //     $('.popup-menu__list').append(listItem.outerHTML);
-
-                    // $('.popup-menu__list-link[data-id="' + id + '"]').on('click', function (e) {
-                    //     var dropdown = $(this).siblings();
-                    //     if (dropdown.children().length !== 0) {
-                    //         dropdown.slideDown();
-                    //         $(this).on('click', function () {
-                    //             window.util.switchPopup([name, address]);
-                    //             window.util.flyTo(map, point);
-                    //         })
-                    //     } else {
-                    //         window.util.switchPopup([name, address]);
-                    //         window.util.flyTo(map, point);
-                    //     }
-                    // })
-
                 }
             });
 
@@ -74,6 +34,9 @@ $(function () {
                 var name = markerElem.getAttribute('name');
                 var address = markerElem.getAttribute('address');
                 var point = [parseFloat(markerElem.getAttribute('lng')), parseFloat(markerElem.getAttribute('lat'))];
+                var descr = 'Много много текста про какой то не понятный но очень крутой и известный во всём мире город. Об этом городе нужно узнать всем людям по любому! Есть даже ссылка чтоб про читать про это место еще больше.';
+                var more = 'https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)';
+                var img = 'images/s1200-3.jpeg';
 
                 if (parseInt(parentId) !== 0) {
                     var dropdownItem = document.createElement('li');
@@ -84,10 +47,12 @@ $(function () {
                     dropdownLink.setAttribute('data-id', id);
                     dropdownLink.setAttribute('data-point', point);
                     dropdownLink.setAttribute('data-address', address);
+                    dropdownLink.setAttribute('data-descr', descr);
+                    dropdownLink.setAttribute('data-more', more);
+                    dropdownLink.setAttribute('data-img', img);
                     dropdownItem.appendChild(dropdownLink);
                     var dropdown = $('.popup-menu__dropdown[data-id="' + parentId + '"]');
                     dropdown.append(dropdownItem.outerHTML);
-
                 }
             });
         }
@@ -97,16 +62,19 @@ $(function () {
                 var name = $(this).text();
                 var address = $(this).attr('data-address');
                 var point = $(this).attr('data-point').split(',');
+                var descr = $(this).attr('data-descr');
+                var more = $(this).attr('data-more');
+                var img = $(this).attr('data-img');
 
                 var dropdown = $(this).siblings();
                 if (dropdown.children().length !== 0) {
                     dropdown.slideDown();
                     $(this).on('click', function () {
-                        window.util.switchPopup([name, address]);
+                        window.util.switchPopup([name, address, descr, more, img]);
                         window.util.flyTo(map, point);
                     })
                 } else {
-                    window.util.switchPopup([name, address]);
+                    window.util.switchPopup([name, address, descr, more, img]);
                     window.util.flyTo(map, point);
                 }
             });
@@ -115,7 +83,11 @@ $(function () {
                 var name = $(this).text();
                 var address = $(this).attr('data-address');
                 var point = $(this).attr('data-point').split(',');
-                window.util.switchPopup([name, address]);
+                var descr = $(this).attr('data-descr');
+                var more = $(this).attr('data-more');
+                var img = $(this).attr('data-img');
+
+                window.util.switchPopup([name, address, descr, more, img]);
                 window.util.flyTo(map, point);
             })
         }
@@ -143,8 +115,6 @@ $(function () {
                 }
             }
         });
-
-        
     }
 
 window.menu = {

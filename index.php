@@ -22,14 +22,6 @@ require_once 'config.php';
         </button>
     </div>
 
-    <!-- <template id="js-templateHamburger" style="display: none">
-        <button class="hamburger hamburger--squeeze" type="button">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-    </template> -->
-
     <template id="js-templatePopupMenu" style="display: none">
         <div class="popup popup-menu">
             <ul class="popup-menu__list"></ul>
@@ -38,25 +30,19 @@ require_once 'config.php';
 
     <template id="js-templatePopupMenuItem" style="display: none">
         <li class="popup-menu__list-item">
-            <a class="popup-menu__list-link" data-id="" data-point="" data-address=""></a>
-            <ul class="popup-menu__dropdown" data-id=""></ul>
-        </li>
-    </template>
-
-    <template id="js-templatePopupMenuDropdownItem" style="display: none">
-        <li class="popup-menu__dropdown-item">
-            <a class="popup-menu__dropdown-link" data-id="" data-point="" data-address=""></a>
+            <a class="popup-menu__list-link"></a>
+            <ul class="popup-menu__dropdown"></ul>
         </li>
     </template>
 
     <template id="js-templatePopupCity" style="display: none">
         <div class="popup popup-city">
             <span class="popup__close"></span>
-            <img src="images/s1200-3.jpeg" class="popup__img"/> <br/>
+            <img src="" class="popup__img"/> <br/>
             <strong class="popup__name"></strong> <br/>
             <span class="popup__address"></span>
             <p class="popup__descr"></p>
-            <a href="" class="popup__more" target="_blank"></a>
+            <a href="" class="popup__more" target="_blank">Подробнее</a>
         </div>
     </template>
 

@@ -19,7 +19,10 @@ $(function () {
 
             myGeoJSON.properties = {};
             myGeoJSON.properties.name = name;   
-            myGeoJSON.properties.address = address;              
+            myGeoJSON.properties.address = address; 
+            myGeoJSON.properties.descr = 'Много много текста про какой то не понятный но очень крутой и известный во всём мире город. Об этом городе нужно узнать всем людям по любому! Есть даже ссылка чтоб про читать про это место еще больше.';
+            myGeoJSON.properties.more = 'https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)';             
+            myGeoJSON.properties.img = 'images/s1200-3.jpeg';             
 
             geo.push(myGeoJSON);
         });
@@ -78,7 +81,10 @@ $(function () {
 
             var name = e.features[0].properties.name;
             var address = e.features[0].properties.address;
-            window.util.switchPopup([name, address]);
+            var descr = e.features[0].properties.descr;
+            var more = e.features[0].properties.more;
+            var img = e.features[0].properties.img;
+            window.util.switchPopup([name, address, descr, more, img]);
             window.util.flyTo(map, coordinates);
         });
 
@@ -90,7 +96,10 @@ $(function () {
 
             var name = e.features[0].properties.name;
             var address = e.features[0].properties.address;
-            window.util.switchPopup([name, address]);
+            var descr = e.features[0].properties.descr;
+            var more = e.features[0].properties.more;
+            var img = e.features[0].properties.img;
+            window.util.switchPopup([name, address, descr, more, img]);
             window.util.flyTo(map, coordinates);
         });
 
