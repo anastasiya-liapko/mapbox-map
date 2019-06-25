@@ -39,15 +39,21 @@ $(function () {
             request.open('GET', url, true);
             request.send(null);
         }
-        
 
         map.on('load', function () {
+            var zoomValue = map.getZoom();
             downloadUrl('get_base.php', function (data) {
                 var xml = data.responseXML;
                 var markers = xml.documentElement.getElementsByTagName('marker');
                 window.menu.addMenu(map, markers);
                 window.marker.addMarkers(map, markers);
+                window.util.switchLayer(map, zoomValue); 
             });
+        });
+
+        map.on('zoom', function () {
+            var zoomValue = map.getZoom();
+            window.util.switchLayer(map, zoomValue);            
         });
 
     });

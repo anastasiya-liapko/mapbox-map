@@ -15,10 +15,22 @@ $(function () {
         }
     };
 
-    var flyTo = function (map, coordinates) {
+    var flyTo = function (map, coordinates, type) {
+        var zoomValue = map.getZoom();
+
+        if (type === 'city' && zoomValue >= 10) {
+            zoomValue = 9;
+        } else if (type === 'city' && zoomValue < 10) {
+            zoomValue;
+        } else if (type === 'point' && zoomValue > 10) {
+            zoomValue;
+        } else if (type === 'point' && zoomValue <= 10) {
+            zoomValue = 10;
+        }
+
         map.flyTo({
             center: coordinates,
-            zoom: 9,
+            zoom: zoomValue,
             bearing: 2,
             
             // speed: 0.8,
@@ -29,12 +41,25 @@ $(function () {
         });
     };
 
+    var switchLayer = function (map, zoomValue) {
+        if (zoomValue >= 10) {
+            map.setLayoutProperty('city', 'visibility', 'none');
+            map.setLayoutProperty('point', 'visibility', 'visible');
+        } else {
+            map.setLayoutProperty('point', 'visibility', 'none');
+            map.setLayoutProperty('city', 'visibility', 'visible');
+        }
+    }
+
     window.util = {
         switchPopup: function (markerElem) {
             switchPopup(markerElem);
         },
-        flyTo: function (map, coordinates) {
-            flyTo(map, coordinates);
+        flyTo: function (map, coordinates, type) {
+            flyTo(map, coordinates, type);
+        },
+        switchLayer: function (map, zoomValue) {
+            switchLayer(map, zoomValue);
         }
     }
 
