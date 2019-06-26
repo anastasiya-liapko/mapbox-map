@@ -18,10 +18,10 @@ $(function () {
     var flyTo = function (map, coordinates, type) {
         var zoomValue = map.getZoom();
 
-        if (type === 'city' && zoomValue >= 10) {
-            zoomValue = 9;
-        } else if (type === 'city' && zoomValue < 10) {
+        if (type === 'city' && zoomValue >= 9) {
             zoomValue;
+        } else if (type === 'city' && zoomValue < 10) {
+            zoomValue = 9;
         } else if (type === 'point' && zoomValue > 10) {
             zoomValue;
         } else if (type === 'point' && zoomValue <= 10) {
