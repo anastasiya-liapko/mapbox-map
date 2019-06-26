@@ -71,11 +71,11 @@ $(function () {
                     dropdown.slideDown();
                     $(this).on('click', function () {
                         window.util.switchPopup([name, address, descr, more, img]);
-                        window.util.flyTo(map, point, 'city');
+                        window.util.flyTo(map, point);
                     })
                 } else {
                     window.util.switchPopup([name, address, descr, more, img]);
-                    window.util.flyTo(map, point, 'city');
+                    window.util.flyTo(map, point);
                 }
             });
 
@@ -88,7 +88,7 @@ $(function () {
                 var img = $(this).attr('data-img');
 
                 window.util.switchPopup([name, address, descr, more, img]);
-                window.util.flyTo(map, point, 'point');
+                window.util.flyTo(map, point);
             })
         }
         

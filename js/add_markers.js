@@ -66,7 +66,7 @@ $(function () {
             var more = e.features[0].properties.more;
             var img = e.features[0].properties.img;
             window.util.switchPopup([name, address, descr, more, img]);
-            window.util.flyTo(map, coordinates, 'point');
+            window.util.flyTo(map, coordinates);
         });
 
         map.on('mouseenter', 'point', function () {
@@ -108,7 +108,7 @@ $(function () {
             var more = e.features[0].properties.more;
             var img = e.features[0].properties.img;
             window.util.switchPopup([name, address, descr, more, img]);
-            window.util.flyTo(map, coordinates, 'city');
+            window.util.flyTo(map, coordinates);
         });
 
         map.on('mouseenter', 'city', function () {

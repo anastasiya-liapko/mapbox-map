@@ -15,18 +15,10 @@ $(function () {
         }
     };
 
-    var flyTo = function (map, coordinates, type) {
+    var flyTo = function (map, coordinates) {
         var zoomValue = map.getZoom();
 
-        if (type === 'city' && zoomValue >= 9) {
-            zoomValue;
-        } else if (type === 'city' && zoomValue < 10) {
-            zoomValue = 9;
-        } else if (type === 'point' && zoomValue > 10) {
-            zoomValue;
-        } else if (type === 'point' && zoomValue <= 10) {
-            zoomValue = 10;
-        }
+        zoomValue = zoomValue <= 10 ? 10 : zoomValue;
 
         map.flyTo({
             center: coordinates,
@@ -55,8 +47,8 @@ $(function () {
         switchPopup: function (markerElem) {
             switchPopup(markerElem);
         },
-        flyTo: function (map, coordinates, type) {
-            flyTo(map, coordinates, type);
+        flyTo: function (map, coordinates) {
+            flyTo(map, coordinates);
         },
         switchLayer: function (map, zoomValue) {
             switchLayer(map, zoomValue);
