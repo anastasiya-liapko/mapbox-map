@@ -11,6 +11,8 @@ $(function () {
             var name = markerElem.getAttribute('name');
             var address = markerElem.getAttribute('address');
             // var type = markerElem.getAttribute('type');
+            var descr = markerElem.getAttribute('descr');
+            var more = markerElem.getAttribute('descrLink');
             var point = [parseFloat(markerElem.getAttribute('lng')), parseFloat(markerElem.getAttribute('lat'))];
             
             var myGeoJSON = {};
@@ -23,8 +25,8 @@ $(function () {
             myGeoJSON.properties = {};
             myGeoJSON.properties.name = name;   
             myGeoJSON.properties.address = address; 
-            myGeoJSON.properties.descr = 'Много много текста про какой то не понятный но очень крутой и известный во всём мире город. Об этом городе нужно узнать всем людям по любому! Есть даже ссылка чтоб про читать про это место еще больше.';
-            myGeoJSON.properties.more = 'https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)';             
+            myGeoJSON.properties.descr = descr;
+            myGeoJSON.properties.more = more;       
             myGeoJSON.properties.img = 'images/s1200-3.jpeg';             
 
             if (parseInt(parentId) === 0) {

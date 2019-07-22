@@ -56,6 +56,10 @@ function parseToXML($htmlStr)
          echo 'lat="' . $one_item['lat'] . '" ';
          echo 'lng="' . $one_item['lng'] . '" ';
          echo 'type="' . $one_item['type'] . '" ';
+         echo 'descr="' . parseToXML($one_item['description']) . '" ';
+         echo 'descrLink="' . parseToXML($one_item['desc_link']) . '" ';
+         echo 'imgLink="' . parseToXML($one_item['img_link']) . '" ';
+         echo 'icon="' . parseToXML($one_item['icon']) . '" ';
          echo '/>';
      }
 // End XML file

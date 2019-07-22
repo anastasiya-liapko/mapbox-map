@@ -8,15 +8,14 @@ $(function () {
             var template = document.querySelector('#js-templatePopupMenu').content.querySelector('.popup');
             var templateElement = template.cloneNode(true);
             fragmentMenu.appendChild(templateElement);
-            
             Array.prototype.forEach.call(markers, function (markerElem, i) {
                 var id = markerElem.getAttribute('id');
                 var parentId = markerElem.getAttribute('parentId');
                 var name = markerElem.getAttribute('name');
                 var address = markerElem.getAttribute('address');
                 var point = [parseFloat(markerElem.getAttribute('lng')), parseFloat(markerElem.getAttribute('lat'))];
-                var descr = 'Много много текста про какой то не понятный но очень крутой и известный во всём мире город. Об этом городе нужно узнать всем людям по любому! Есть даже ссылка чтоб про читать про это место еще больше.';
-                var more = 'https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)';
+                var descr = markerElem.getAttribute('descr');
+                var more = markerElem.getAttribute('descrLink');
                 var img = 'images/s1200-3.jpeg';
 
                 if (parseInt(parentId) == 0) {
@@ -34,8 +33,8 @@ $(function () {
                 var name = markerElem.getAttribute('name');
                 var address = markerElem.getAttribute('address');
                 var point = [parseFloat(markerElem.getAttribute('lng')), parseFloat(markerElem.getAttribute('lat'))];
-                var descr = 'Много много текста про какой то не понятный но очень крутой и известный во всём мире город. Об этом городе нужно узнать всем людям по любому! Есть даже ссылка чтоб про читать про это место еще больше.';
-                var more = 'https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8_(%D0%BF%D0%B5%D1%81%D0%BD%D1%8F)';
+                var descr = markerElem.getAttribute('descr');
+                var more = markerElem.getAttribute('descrLink');
                 var img = 'images/s1200-3.jpeg';
 
                 if (parseInt(parentId) !== 0) {

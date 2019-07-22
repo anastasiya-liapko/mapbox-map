@@ -1,3 +1,16 @@
+-- DROP TABLE IF EXISTS `markers`;
+-- CREATE TABLE `markers` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `parent_id` int(11) unsigned DEFAULT '0',
+--   `name` varchar(60) NOT NULL,
+--   `address` varchar(80) NOT NULL,
+--   `lat` float(10,6) NOT NULL,
+--   `lng` float(10,6) NOT NULL,
+--   `type` varchar(30) NOT NULL,
+--   `to_show` int(11) DEFAULT '0',
+--   PRIMARY KEY (`id`)
+-- ) ENGINE=MyISAM AUTO_INCREMENT=673 DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `markers`;
 CREATE TABLE `markers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -8,11 +21,15 @@ CREATE TABLE `markers` (
   `lng` float(10,6) NOT NULL,
   `type` varchar(30) NOT NULL,
   `to_show` int(11) DEFAULT '0',
+  `description` text,
+  `desc_link` text,
+  `img_link` text,
+  `icon` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=673 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8;
 
-INSERT INTO `markers` (`id`, `parent_id`, `name`, `address`, `lat`, `lng`, `to_show`) VALUES
-(1, 0, 'Москва', 'Столица России',	'55.732197', '37.570766', 1);
+INSERT INTO `markers` (`id`, `parent_id`, `name`, `address`, `lat`, `lng`, `to_show`, `description`, `desc_link`, `img_link`, `icon`) VALUES
+(1, 0, 'Москва', 'Столица России',	'55.732197', '37.570766', 1, 'Очень большой и богатый город. Отлично подходит для развития вашего бизнеса.', 'https://ru.wikipedia.org/wiki/Москва', NULL, 'city');
 
 INSERT INTO `markers` (`parent_id`, `name`, `lat`, `lng`, `to_show`) VALUES
 (1,	'Москва, 127055, ул.Образцова, д.11, стр.5, эт.4',	'55.788846',	'37.607687',	1),
